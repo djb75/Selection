@@ -1,4 +1,6 @@
-﻿namespace Selection
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Selection
 {
     internal class Program
     {
@@ -8,7 +10,8 @@
             Right,
             Obtuse,
             Straight,
-            Reflex
+            Reflex,
+            Incorrect
         }
         static void Main(string[] args)
         {
@@ -78,10 +81,98 @@
                 return AngleTypes.Right;
             }
 
-            if (angle > 90)
-                {
+            if (angle > 90 && angle < 180)
+            {
+                return AngleTypes.Obtuse;
+            }
 
-                }
+            if (angle == 180)
+            {
+                return AngleTypes.Straight;
+            }
+
+            if (angle > 180)
+            {
+                return AngleTypes.Reflex;
+            }
+
+            else
+            {
+                return AngleTypes.Incorrect;
+            }
         }
-    }
+
+        static void rockPaperScissors()
+        {
+            Console.WriteLine("Enter rock, paper or scissors");
+            string? userPlay = Console.ReadLine();
+            while (userPlay == null)
+            {
+                Console.WriteLine("No input entered");
+                Console.WriteLine("Enter rock, paper or scissors");
+                userPlay = Console.ReadLine();
+            }
+            Random rnd = new Random();
+            int computerPlayInt = rnd.Next(0, 2);
+            string computerPlay = "";
+            switch(computerPlayInt)
+            {
+                case 0:
+                    computerPlay = "Rock";
+                    break;
+                case 1:
+                    computerPlay = "Paper";
+                    break;
+                case 2:
+                    computerPlay = "Scissors";
+                    break;
+            }
+            Console.WriteLine($"User plays: {userPlay}");
+            Console.WriteLine($"Computer plays: {computerPlay}");
+            bool playerWin = false;
+
+            if (userPlay == "rock" && computerPlay == "scissors")
+            {
+                playerWin = true;
+            }
+
+            if (userPlay == "scissors" && computerPlay == "paper")
+            {
+                playerWin = true;
+            }
+
+            if (userPlay == "paper" && computerPlay == "rock")
+            {
+                playerWin = true;
+            }
+
+            switch(playerWin)
+            {
+                case true:
+                    Console.WriteLine("Player wins");
+                    break;
+
+                case false:
+                    Console.WriteLine("Computer wins");
+                    break;
+            }
+        }
+
+        static string triangleType (double side1, double side2, double side3)
+        {
+            if (side1 == side2 && side2 == side3)
+            {
+                return "Equilateral";
+            }
+
+            if (side1 != side2 && side2 != side3)
+            {
+                return "Scalene";
+            }
+
+            else
+            {
+                return "Isosceles";
+            }
+        }
 }
