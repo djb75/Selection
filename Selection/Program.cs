@@ -175,4 +175,74 @@ namespace Selection
                 return "Isosceles";
             }
         }
+
+        static void concertSale()
+        {
+            Console.WriteLine("Enter ticket price: ");
+            string? priceStr = Console.ReadLine();
+            while (priceStr == null)
+            {
+                Console.WriteLine("No input. Try again: ");
+                priceStr = Console.ReadLine();
+            }
+            double price;
+            while (!double.TryParse(priceStr, out price))
+            {
+                Console.WriteLine("Invalid input. Try again: ");
+                priceStr = Console.ReadLine();
+            }
+            //double.TryParse(priceStr, out double price);    //Set up error messages
+            Console.WriteLine(price);
+
+            Console.WriteLine("Enter number of tickets sold: ");
+            string? ticketsSoldStr = Console.ReadLine();
+            while (ticketsSoldStr == null)
+            {
+                Console.WriteLine("No input. Try again: ");
+                ticketsSoldStr = Console.ReadLine();
+            }
+            int ticketsSold;
+            while (!Int32.TryParse(ticketsSoldStr, out ticketsSold))
+            {
+                Console.WriteLine("Invalid input. Try again: ");
+                ticketsSoldStr = Console.ReadLine();
+            }
+
+            //Int32.TryParse(ticketsSoldStr, out int ticketsSold);
+            Console.WriteLine(ticketsSold);
+
+            double netSales = ticketsSold * price;
+            netSales = Math.Round(netSales, 2);
+            Console.WriteLine($"Total sales revenue: £{netSales}.");
+        }
+
+        static bool eighteenToThirtyHoliday()
+        {
+            Console.WriteLine("Enter birthdate: ");
+            string? birthDateStr = Console.ReadLine();
+            while (birthDateStr == null)
+            {
+                Console.WriteLine("No input. Try again: ");
+                birthDateStr = Console.ReadLine();
+            }
+            DateTime birthdate;
+            while (!DateTime.TryParse(birthDateStr, out birthdate))
+            {
+                Console.WriteLine("Invalid input. Try again: ");
+                birthDateStr = Console.ReadLine();
+            }
+            Console.WriteLine(birthdate);
+            int currentYear = DateTime.Now.Year;
+            Console.WriteLine($"Current year: {currentYear}");
+            int age = birthdate.Year - currentYear;
+            Console.WriteLine($"Age: {age}");
+            if (age >= 18 && age <= 30)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 }
