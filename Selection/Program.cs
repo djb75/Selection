@@ -20,7 +20,7 @@ namespace Selection
             Console.WriteLine(FizzBuzz(15));    //Expect FizzBuzz
             Console.WriteLine(FizzBuzz(4)); //Expect no divisibility
 
-            Console.WriteLine(vowelOrConsonant('a')); 
+            Console.WriteLine(vowelOrConsonant('a'));
             Console.WriteLine(vowelOrConsonant('p'));
 
             Console.WriteLine(threeDice());
@@ -53,7 +53,7 @@ namespace Selection
             }
             else
             {
-               divisibility = val.ToString();
+                divisibility = val.ToString();
             }
 
             return divisibility;
@@ -62,7 +62,7 @@ namespace Selection
         static bool vowelOrConsonant(char letter)
         {
             letter = char.ToLower(letter);
-            switch(letter)
+            switch (letter)
             {
                 case 'a':
                 case 'e':
@@ -141,7 +141,7 @@ namespace Selection
             Random rnd = new Random();
             int computerPlayInt = rnd.Next(0, 2);
             string computerPlay = "";
-            switch(computerPlayInt)
+            switch (computerPlayInt)
             {
                 case 0:
                     computerPlay = "Rock";
@@ -172,7 +172,7 @@ namespace Selection
                 playerWin = true;
             }
 
-            switch(playerWin)
+            switch (playerWin)
             {
                 case true:
                     Console.WriteLine("Player wins");
@@ -184,7 +184,7 @@ namespace Selection
             }
         }
 
-        static string triangleType (double side1, double side2, double side3)
+        static string triangleType(double side1, double side2, double side3)
         {
             if (side1 == side2 && side2 == side3)
             {
@@ -260,7 +260,7 @@ namespace Selection
             Console.WriteLine(birthdate);
             int currentYear = DateTime.Now.Year;
             Console.WriteLine($"Current year: {currentYear}");
-            int age = birthdate.Year - currentYear;
+            int age = currentYear - birthdate.Year;
             Console.WriteLine($"Age: {age}");
             if (age >= 18 && age <= 30)
             {
@@ -271,4 +271,5 @@ namespace Selection
                 return false;
             }
         }
+    }
 }
