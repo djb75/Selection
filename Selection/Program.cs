@@ -16,6 +16,28 @@ namespace Selection
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+            Console.WriteLine(FizzBuzz(15));    //Expect FizzBuzz
+            Console.WriteLine(FizzBuzz(4)); //Expect no divisibility
+
+            Console.WriteLine(vowelOrConsonant('a')); 
+            Console.WriteLine(vowelOrConsonant('p'));
+
+            Console.WriteLine(threeDice());
+
+            Console.WriteLine(angleSize(90));
+            Console.WriteLine(angleSize(180));
+            Console.WriteLine(angleSize(50));
+            Console.WriteLine(angleSize(270));
+
+            rockPaperScissors();
+
+            Console.WriteLine(triangleType(9, 9, 9));
+            Console.WriteLine(triangleType(1, 2, 3));
+            Console.WriteLine(triangleType(2, 2, 3));
+
+            concertSale();
+            eighteenToThirtyHoliday();
         }
 
         static string FizzBuzz(int val)
@@ -28,6 +50,10 @@ namespace Selection
             if (val % 5 == 0)
             {
                 divisibility += "Buzz";
+            }
+            else
+            {
+               divisibility = val.ToString();
             }
 
             return divisibility;
